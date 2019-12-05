@@ -668,15 +668,15 @@ for jjj = 1:length(ts)
     P_post_indicators(:,:,jjj) = (sign(v_quantile_UP).*sign(v_quantile_DOWN)==1);
     
     patient_all_iter_estimates{jjj} = zeros(n,post_size);
-    for iter = 1:post_size
-        patient_all_iter_estimates{jjj}(:,iter) = sum(P.*v(:,:,iter),2);
+    for ff = 1:post_size
+        patient_all_iter_estimates{jjj}(:,ff) = sum(P.*v(:,:,ff),2);
     end
     
     for i = 1:n
         for j = 1:p
             count = 0;
-            for iter = 1:post_size
-                if(abs(v(i,j,iter)) < 10^(-10))
+            for ff = 1:post_size
+                if(abs(v(i,j,ff)) < 10^(-10))
                     count = count + 1;
                 end
             end
